@@ -1,19 +1,7 @@
-from sqlalchemy import text
+from sqlalchemy import create_engine, text
+from app.config.settings import settings
 
-from app.database.database import engine
+engine = create_engine(settings.DATABASE_URL)
 
-
-try:
-
-    with engine.connect() as conn:
-
-        result = conn.execute(text("SELECT version();"))
-
-        print(result.fetchone())
-
-        print("\n")
-        print("Database Connected Successfully")
-
-except Exception as e:
-
-    print(e)
+with engine.connect() as conn:
+    print(conn.execute(text("SELECT version();")).fetchone())
