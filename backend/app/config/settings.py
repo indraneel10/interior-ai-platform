@@ -5,7 +5,7 @@ class Settings(BaseSettings):
 
     APP_NAME: str = "Interior AI Platform"
 
-    DATABASE_URL: str = "postgresql://postgres:YOUR_PASSWORD@localhost:5432/interior_ai"
+    DATABASE_URL: str = "postgresql://postgres:Risind123@@localhost:5432/interior_ai"
 
     OPENAI_API_KEY: str = ""
 
