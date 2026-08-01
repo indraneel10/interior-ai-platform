@@ -30,3 +30,26 @@ def get_all_leads(db: Session):
 
 def get_lead(db: Session, lead_id: int):
     return db.query(Lead).filter(Lead.id == lead_id).first()
+
+
+from app.conversation.session import ConversationSession
+
+
+def create_lead_from_session(db: Session, session: ConversationSession):
+
+    lead = Lead(
+        customer_name="Demo Customer",
+        phone_number=session.session_id,
+        language=session.language,
+        property_type=session.property_type,
+        bhk=session.bhk,
+        rooms=session.rooms,
+        budget=session.budget,
+        package=session.package,
+    )
+
+    db.add(lead)
+    db.commit()
+    db.refresh(lead)
+
+    return lead
