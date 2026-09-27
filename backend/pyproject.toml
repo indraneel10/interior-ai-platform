@@ -16,7 +16,3 @@ ignore = ["B008"]
 testpaths = ["tests"]
 pythonpath = ["."]
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["."]
-
