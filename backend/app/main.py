@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from app.routers.lead_router import router as lead_router
 from app.routers.conversation_router import router as conversation_router
+from app.routers.lead_router import router as lead_router
 
 app = FastAPI(
     title="Interior AI Platform"
