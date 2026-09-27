@@ -25,7 +25,11 @@ jobs:
       - run: python -m pip install -r requirements.txt pytest ruff
       - run: ruff check app tests
       - run: python -m compileall -q app
+        env:
+          DATABASE_URL: postgresql+psycopg2://ci:ci@localhost:5432/interior_ai_ci
       - run: pytest -q
+        env:
+          DATABASE_URL: postgresql+psycopg2://ci:ci@localhost:5432/interior_ai_ci
 
   docker-build:
     runs-on: ubuntu-latest
