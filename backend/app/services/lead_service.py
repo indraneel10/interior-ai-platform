@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 
+from app.conversation.session import ConversationSession
 from app.models.lead import Lead
 from app.schemas.lead import LeadCreate
 
@@ -30,9 +31,6 @@ def get_all_leads(db: Session):
 
 def get_lead(db: Session, lead_id: int):
     return db.query(Lead).filter(Lead.id == lead_id).first()
-
-
-from app.conversation.session import ConversationSession
 
 
 def create_lead_from_session(db: Session, session: ConversationSession):

@@ -1,5 +1,5 @@
-from app.conversation.prompts import PROMPTS
 from app.conversation.package_selector import determine_package
+from app.conversation.prompts import PROMPTS
 from app.conversation.session import ConversationSession
 
 
@@ -107,7 +107,7 @@ class ConversationManager:
             return PROMPTS["BUDGET"][session.language]
 
         # Budget
-        
+
         if session.state == "BUDGET":
 
             try:
